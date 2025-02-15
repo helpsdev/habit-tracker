@@ -1,0 +1,10 @@
+(done) Implement the Delete Habit functionality right clicking on the element
+(done) Define Habit class with the following properties:
+- Name string
+- List of Frequency DayOfWeek
+(done) Update binding to listview with new habit class
+(done) Implement Edit functionality on right click
+Separate add and edit functionality may be hiding/showing different buttons, on edit how to get the Id to find the item in the list?
+Enforce selecting at least one day of frequency?
+Create view to list habits
+Create view to add/edit habits

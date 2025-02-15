@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:HabitTracker"
+             x:Class="HabitTracker.MainPage"
+             x:DataType="local:MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Label Text="New Habit" />
+            <Label x:Name="HabitCounter" Text="{Binding Count, Source={x:Static local:MainPage.HabitList}, StringFormat='Habits Saved: {0}'}" />
+            <Entry x:Name="HabitName" />
+            <Label Text="Frequency"/>
+            <HorizontalStackLayout>
+                <Label Text="Monday" VerticalOptions="Center"/>
+                <CheckBox x:Name="MondayCheckbox"/>
+                <Label Text="Tuesday" VerticalOptions="Center"/>
+                <CheckBox x:Name="TuesdayCheckbox" />
+                <Label Text="Wednesday" VerticalOptions="Center"/>
+                <CheckBox x:Name="WednesdayCheckbox" />
+                <Label Text="Thusday" VerticalOptions="Center"/>
+                <CheckBox x:Name="ThursdayCheckbox" />
+                <Label Text="Friday" VerticalOptions="Center"/>
+                <CheckBox x:Name="FridayCheckbox" />
+                <Label Text="Saturday" VerticalOptions="Center"/>
+                <CheckBox x:Name="SaturdayCheckbox" />
+                <Label Text="Sunday" VerticalOptions="Center"/>
+                <CheckBox x:Name="SundayCheckbox" />
+            </HorizontalStackLayout>
+            <Button x:Name="AddButton"
+                    Text="Add"
+                    Clicked="AddButton_Clicked"/>
+            <Button x:Name="EditButton"
+                    Text="Edit"
+                    Clicked="EditButton_Clicked"
+                    IsVisible="False"/>
+            <Button x:Name="ClearButton" 
+                    Text="Clear" 
+                    Clicked="ClearButton_Clicked" />
+            <Button x:Name="CancelButton" 
+                    Text="Cancel" 
+                    Clicked="CancelButton_Clicked"
+                    IsVisible="False"/>
+            <ListView x:Name="HabitsListView" ItemsSource="{x:Static local:MainPage.HabitList}" x:DataType="local:Habit">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Delete" Clicked="OnDeleteMenuItem_Clicked"></MenuItem>
+                                <MenuItem Text="Edit" Clicked="OnEditMenuItem_Clicked"></MenuItem>
+                            </ViewCell.ContextActions>
+                            <Label Text="{Binding Name}"></Label>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
